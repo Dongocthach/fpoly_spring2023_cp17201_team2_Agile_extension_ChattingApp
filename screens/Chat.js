@@ -60,8 +60,6 @@ import React, {
               user: doc.data().user
             }))
           );
-          console.log(messages[1]);
-
         });
     return unsubscribe;
       }, []);

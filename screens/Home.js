@@ -7,7 +7,6 @@ import { Entypo } from '@expo/vector-icons';
 import { signOut } from 'firebase/auth';
 import { AntDesign } from '@expo/vector-icons';
 import { auth, database } from '../config/firebase';
-import { Button } from "react-native-web";
 import {
     collection,
     addDoc,

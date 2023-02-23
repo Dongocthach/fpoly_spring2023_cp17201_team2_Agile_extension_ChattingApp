@@ -1,26 +1,44 @@
 import { Platform, Pressable, StyleSheet, Text, ToastAndroid, View, SafeAreaView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { MaterialIcons } from '@expo/vector-icons';
+import { auth, database } from '../config/firebase';
+import {
+    collection,
+    addDoc,
+    orderBy,
+    query,
+    where,
+    doc,
+    onSnapshot
+  } from 'firebase/firestore'
+  const deleteShoppingItem = () => {
+    /// cần lấy ra id chổ này để reset
+    console.log("1234567890");
+  }
+export default function NewsModel({
+  _id,
+  content,
+  author,
+  title
+}) 
 
-
-const NewsModel =  () => {
-  return (
-    <View style={styles.container}>
-      <View>
-        <Text>1111111111111111</Text>
-
-      </View>
-      <View>
-        <Text>1111111111111111</Text>
-      </View>
-        {/* delete button */}
+{
+return(
+  <View style={styles.singleItem}>
+    <View style={styles.row}>
+      <View style={styles.tweetContent}>
+        <Text style={styles.description}>{title}</Text>
+        <Text style={styles.description}>{content}</Text>
+        <Text style={styles.description}>{author}</Text>
         <Pressable style={styles.delete} >
-          <MaterialIcons name="delete" size={24} color="#FF6768" />
+          <MaterialIcons name="delete" size={24} color="#FF6768" onPress={deleteShoppingItem}/>
         </Pressable>
+      </View>
     </View>
-  )
-}
-export default NewsModel
+  </View>
+)
+}  
+
 
 
 const styles = StyleSheet.create({
